@@ -94,10 +94,8 @@ public class Solution {
             }
         } catch (Exception e) {
             System.out.println("Error:" + e.toString());
-            // 清空输入缓冲区
-            while (sc.hasNextLine()) {
-                sc.nextLine();
-            }
+            // 清空输入缓冲
+            sc.nextLine();
             showMenu();
         }
     }
