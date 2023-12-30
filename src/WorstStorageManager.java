@@ -60,6 +60,7 @@ class WorstStorageManager extends StorageManager {
                     Space nextSpace = spaces.get(i+1);
                     if(!nextSpace.isOccpied) {
                         spaces.remove(i+1);
+                        freeSet.remove(nextSpace);
                         space.end = nextSpace.end;
                     }
                 }
@@ -67,6 +68,7 @@ class WorstStorageManager extends StorageManager {
                     Space preSpace = spaces.get(i - 1);
                     if (!preSpace.isOccpied) {
                         spaces.remove(i - 1);
+                        freeSet.remove(preSpace);
                         space.start = preSpace.start;
                     }
                 }
