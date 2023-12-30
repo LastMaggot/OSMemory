@@ -41,18 +41,20 @@ class FirstStorageManager extends StorageManager {
                 space.isOccpied = false;
                 space.processId = -1;
                 space.threadId = -1;
-                if(i > 0) {
-                    Space preSpace = spaces.get(i-1);
-                    if(!preSpace.isOccpied) {
-                        spaces.remove(i-1);
-                        space.start = preSpace.start;
-                    }
-                }
+                boolean removeLast = false;
+                boolean removeNext = true;
                 if(i < length - 1) {
                     Space nextSpace = spaces.get(i+1);
                     if(!nextSpace.isOccpied) {
                         spaces.remove(i+1);
                         space.end = nextSpace.end;
+                    }
+                }
+                if(i > 0) {
+                    Space preSpace = spaces.get(i - 1);
+                    if (!preSpace.isOccpied) {
+                        spaces.remove(i - 1);
+                        space.start = preSpace.start;
                     }
                 }
                 return space;
